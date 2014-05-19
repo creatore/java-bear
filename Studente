@@ -1,0 +1,61 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+
+public class Studente {
+	
+	private String nome;
+	private String cognome;
+	private String matricola;
+	
+	
+	public Studente(int riga) {
+		
+		super();
+		
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("studenti.txt"));
+			String s;
+			String dati[] = new String[3];
+			
+			while (( s = br.readLine()) != null)
+			{
+				dati = s.split(",");
+	
+
+				this.nome = dati[0];
+				this.cognome = dati[1];
+				this.matricola = dati[2];
+			}
+		
+			
+		
+			}
+			 catch (FileNotFoundException e)
+			{
+				e.printStackTrace();
+		    }
+			catch (IOException e) 
+			{
+				e.printStackTrace();
+			}
+		
+	}
+
+
+	@Override
+	public String toString() {
+		return "Studente [nome=" + nome + ", cognome=" + cognome
+				+ ", matricola=" + matricola + "]";
+	}
+	
+	
+	
+	
+	
+	
+	
+
+}
